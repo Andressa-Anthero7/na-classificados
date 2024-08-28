@@ -1,0 +1,1038 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.fa-facebook:hover{
+    transform: scale(1.5);
+    text-decoration: none;
+}
+
+.fa-instagram:hover {
+    transform: scale(1.5);
+    text-decoration: none;
+}
+
+.social-icons{
+    position:relative;
+    left:45%;
+    top:1em;
+}
+
+
+
+  .hidden{
+    display:none;
+  }
+
+   .modal-title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+
+
+
+
+.card:hover{
+        transform: scale(1.1);
+	    z-index:2;
+	    box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
+	    -webkit-box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
+	    -moz-box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
+	}
+
+@media (max-width: 320.97px) {
+
+	body{
+		max-width: 100%;
+		background:lavender;
+	}
+
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
+
+	#img-logo{
+		max-height: 5em;
+	}
+
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	    border:1px solid black;
+	}
+
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+	}
+
+	#barra-pesquisa{
+		min-width: 100%;
+		position: relative;
+		left: -1em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:75%;
+		top:-1.5em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left: 75%;
+		top:-2.5em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:10em;
+		left:0em;
+         z-index:3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+    }
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+
+	    
+	   
+
+
+
+}
+
+@media (min-width:  321.00px) and (max-width:360.98px) {
+
+	body{
+		max-width: 100%;
+		background:aliceblue;
+	}
+
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
+
+	#img-logo{
+		max-height: 5em;
+	}
+
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	}
+
+	.social-icons,p{
+	    font-size:1.2em;
+	    min-width:100%;
+	}
+
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
+	}
+
+	#barra-pesquisa{
+		max-width: 83%;
+		position: relative;
+		left: -1em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:0em;
+		top:0;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left: 95%;
+		top:-2.5em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:10em;
+		left:0em;
+        z-index:3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+    }
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+
+
+}
+
+@media (min-width: 361px) and (max-width:  375.98px){
+	body{
+		max-width: 100%;
+		background:aliceblue;
+	}
+
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
+
+	#img-logo{
+		max-height: 5em;
+	}
+
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	}
+
+	.social-icons,p{
+	    font-size:1.2em;
+	    min-width:100%;
+	}
+
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
+	}
+
+	#barra-pesquisa{
+		max-width: 83%;
+		position: relative;
+		left: -1em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:0em;
+		top:0;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left: 95%;
+		top:-2.5em;
+	}
+
+
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+}
+
+
+@media (min-width: 376px) and (max-width:  428.98px) {
+	body{
+		max-width: 100%;
+		background:aliceblue;
+	}
+
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
+
+	#img-logo{
+		max-height: 5em;
+	}
+
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	}
+
+	.social-icons,p{
+	    font-size:1.4em;
+	    min-width:100%;
+	}
+
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
+	}
+
+	#barra-pesquisa{
+		min-width: 100%;
+		position: relative;
+		left: 0em;
+		height:4em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:90%;
+		top:-2em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left: 77%;
+		top:0.2em;
+	}
+
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+	
+
+}
+
+@media (min-width: 429.00px) and (max-width:  768.98px) {
+	body{
+		min-width: 100%;
+		background:aliceblue;
+	}
+
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+        display:none
+
+    }
+
+	#img-logo{
+		max-height: 5em;
+	}
+
+	.social-icons{
+	    position:relative;
+	    top:1em;
+	    left:10%;
+	    max-width:100%;
+	    display:inline;
+	}
+
+	.social-icons,p{
+	    font-size:1.4em;
+	    position:relative;
+	    top:0.3em;
+
+	}
+
+	#icone-instagram{
+	    position:relative;
+	    top:0.3em;
+	    left:-4em;
+	    font-size:2em;
+
+	}
+
+	#pesquisa{
+	    border:2px solid red;
+	    max-width:100%;
+	}
+
+	#form-pesquisa{
+	    border:3px solid black;
+
+	}
+
+
+
+	#barra-pesquisa{
+
+
+		height:4em;
+		border:10px solid blue;
+	}
+
+	#apagar-pesquisa, a{
+		position: relative;
+		left:0;
+		top:-8em;
+
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left:0;
+		top:-3em;
+	}
+
+	#display-anuncios{
+	    position:relative;
+	    top:-4em;
+	}
+
+
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+}
+
+@media (min-width: 768.00px) and (max-width: 1024.97px){
+
+	body{
+		min-width: 100%;
+		background:aliceblue;
+	}
+
+	header{
+		background:#000000;
+		max-height: 6em;
+		min-width: 1024px;
+		position: relative;
+		left: -5em;
+	}
+
+	#img-logo{
+		min-height: 6em;
+		margin-left: 4em;
+	}
+
+	#logos-redes-sociais{
+		padding: 0.5em;
+		position: relative;
+		left: 0em;
+	}
+
+	.fa-facebook-official{
+		font-size: 1.2em;
+		position: relative;
+		top:0em;
+		left: -10%;
+	}
+
+	.fa-instagram{
+		position: relative;
+		left: 20%;
+		top:-0.2em;
+		font-size: 1.2em;
+	}
+
+
+	#img-logo{
+		max-height: 3em;
+	}
+
+
+
+
+	#barra-pesquisa{
+		min-width: 200%;
+		position: relative;
+		left: -1em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:200%;
+		top:-1.5em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left:200%;
+		top:-2.2em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:9em;
+		left:1em;
+		z-index: 3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+    }
+
+
+
+	.card-title{
+	    min-height:7em;
+	    font-size:1em;
+	}
+
+
+	#area-formulario{
+	    position:absolute;
+	    top:18em;
+	    left:0.5em;
+	    border:1px solid black;
+	    margin:1em;
+	    padding-top:1em;
+	}
+
+	#carousel{
+	    position:relative;
+	    left:0.5em;
+	    top:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-wrap;
+	}
+
+
+    small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+	#area-formulario{
+	    position:relative;
+	    top:0em;
+	}
+
+
+
+
+
+
+
+
+}
+
+@media (min-width: 1025px) and (max-width:1439.97px){
+	body{
+		min-width: 100%;
+		background: aliceblue;
+	}
+
+	#header{
+        width:120%;
+        max-height:4.5em;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        display:none;
+    }
+
+    #img-logo-desktop{
+        position:relative;
+        left:5%;
+        top:0.1em;
+        max-height:4em;
+    }
+
+
+	#barra-pesquisa{
+		min-width: 90%;
+		position: relative;
+		left: 2em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:-1em;
+		top:0em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left:0em;
+		top:0em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:9em;
+		left:1em;
+		z-index: 3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+    }
+
+	.card{
+	    min-width:10em;
+	    max-width:25em;
+	}
+
+	.card-title{
+	    min-height:6em;
+	}
+
+	#area-formulario{
+	    position:absolute;
+	    top:25em;
+	    left:0.5em;
+	    border:1px solid black;
+	    margin:1em;
+	    padding-top:1em;
+	}
+
+	#carousel{
+	    position:relative;
+	    left:0.5em;
+	    top:1.5em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-wrap;
+	}
+
+	small{
+	    font-weight:900;
+	    font-size:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+
+
+
+
+	
+}
+
+@media (min-width:1440px) and (max-width:2559.97px){
+	body{
+		min-width: 100%;
+		background:aliceblue;
+	}
+
+	
+
+	header{
+		background:#000000;
+		max-height: 6em;
+		min-width: 2559px;
+		position: relative;
+		left: -15em;
+	}
+
+	#img-logo{
+		min-height: 6em;
+		margin-left: 10em;
+	}
+
+	#logos-redes-sociais{
+		padding: 0.5em;
+		position: relative;
+		left: -5em;
+	}
+
+	.fa-facebook-official{
+		font-size: 1.2em;
+		position: relative;
+		top:0em;
+		left: -10%;
+	}
+
+	.fa-instagram{
+		position: relative;
+		left: 20%;
+		top:-0.2em;
+		font-size: 1.2em;
+	}
+
+
+	#img-logo{
+		max-height: 3em;
+	}
+
+
+
+
+	#barra-pesquisa{
+		min-width: 370%;
+		position: relative;
+		left: -1em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:350%;
+		top:-1.5em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left:350%;
+		top:-2.3em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:10em;
+		left:1em;
+		z-index: 3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+    }
+
+	.card{
+	    min-width:10em;
+	    max-width:25em;
+	}
+
+	.card-title{
+	    min-height:6em;
+	}
+
+
+	#area-formulario{
+	    position:absolute;
+	    top:25em;
+	    left:0.5em;
+	    border:1px solid black;
+	    margin:1em;
+	    padding-top:1em;
+	}
+
+	#descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+}
+
+@media (min-width:2560px){
+	body{
+		
+		background:aliceblue;
+		max-width:100%;
+	}
+
+
+	
+
+	header{
+		background:#000000;
+		max-height: 6em;
+		min-width:2560px;
+		position: relative;
+		left: -45em;
+	}
+
+	#img-logo{
+		min-height: 6em;
+		margin-left: 10em;
+	}
+
+	#logos-redes-sociais{
+		padding: 0.5em;
+		position: relative;
+		left: -5em;
+	}
+
+	.fa-facebook-official{
+		font-size: 1.2em;
+		position: relative;
+		top:0em;
+		left: -10%;
+	}
+
+	.fa-instagram{
+		position: relative;
+		left: 20%;
+		top:-0.2em;
+		font-size: 1.2em;
+	}
+
+
+	#img-logo{
+		max-height: 3em;
+	}
+
+
+
+
+	#barra-pesquisa{
+		min-width: 370%;
+		position: relative;
+		left: -30em;
+	}
+
+	#apagar-pesquisa{
+		position: relative;
+		left:350%;
+		top:-1.5em;
+	}
+
+	#btn-pesquisar{
+		position: relative;
+		left:350%;
+		top:-2.3em;
+	}
+
+	#display-anuncios{
+		position: relative;
+		left: -30em;
+	}
+
+	#div-carousel{
+		max-width: 50%;
+		margin: 5%;
+	}
+
+	#sobre{
+		max-width: 55%;
+	}
+
+	footer{
+		max-width: 55%;
+	}
+	}
+
+	#whatsapp-flutuante{
+         position: fixed;
+		top:18em;
+		left:80%;
+
+		border-radius:50%;
+		height:0.9em;
+		width:0.9em;
+		color:white;
+		font-size:2.5em;
+	}
+
+	#h4{
+		position: relative;
+		left: -60em;
+	}
+
+	.card{
+	    min-width:10em;
+	    max-width:25em;
+	}
+
+	#whatsapp-flutuante-{
+		position: fixed;
+		top:10em;
+		left:1em;
+		z-index: 3;
+		 padding: 0;
+		
+	}
+
+	#btn-whatsapp-flutuante {
+	    color: #25D366;
+	    font-size: 3.1em;
+	    background: white;
+	    border-radius: 50%;
+	    padding: 0;
+	   
+
+    }
+
+    #descricao-veiculo{
+	    white-space:pre-line;
+
+	}
+
+}

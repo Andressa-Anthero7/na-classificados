@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+			   <!-- Google tag (gtag.js) -->
+
+
+			<!-- Meta Pixel Code -->
+
+			<!-- End Meta Pixel Code -->
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NixAutos - Classificados</title>
+
+
+
+
+	<!-- Jquery CDN -->
+	 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+	<!-- Boostrap 4 CDN  -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	
+
+	<!-- FontAwesome CDN -->
+	<script src="https://kit.fontawesome.com/a69cec9c91.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="fontawesome/css/all.css">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+
+
+
+
+
+
+	<!-- CSS -->
+	 <link rel="stylesheet" type="text/css" href="{% static 'css/estilo-index.css' %}">
+
+
+	<!-- Java Script -->
+	 <script type="text/javascript" >
+
+	 {% for listagem in listagem %}
+
+		 $(document).ready(function(){
+
+		 	function hoverentra(){
+				 var elements = document.querySelectorAll(" #itens-opcionais-{{listagem.id}} .item-opcional");
+
+				// Mostra apenas os três primeiros elementos
+				for (var i = 0; i < elements.length; i++) {
+					if (i < 3) {
+						elements[i].classList.remove("hidden");
+					} else {
+						// Oculta os elementos restantes
+						elements[i].classList.remove("d-block");
+						elements[i].classList.add("hidden");
+					}
+				}
+			}
+
+			function hoversaida(){
+				 var elements = document.querySelectorAll(" #itens-opcionais-{{listagem.id}} .item-opcional");
+
+				// Mostra apenas os três primeiros elementos
+				for (var i = 0; i < elements.length; i++) {
+
+					elements[i].classList.remove("hidden");
+					elements[i].classList.add("d-block");
+
+
+				}
+			}
+
+			hoverentra();
+
+			$(".card-{{listagem.id}}").hover(
+				function() {
+					 hoversaida();
+					 $('.msg-ampliar-clicar-{{listagem.id}}').html('Clique para abrir').addClass('btn btn-primary');
+
+				},
+				function() {
+					hoverentra();
+					 $('.msg-ampliar-clicar-{{listagem.id}}').html('Toque para ampliar...').removeClass('btn btn-primary');
+				}
+			);
+		 });
+		 {% endfor %}
+	 </script>
+
+
+</head>
+
+<!-- Corpo do HTML -->
+<body lang="pt-br" >
+
+	<!-- Container -->
+	<div class="container-fluid ">
+
+
+		<!-- Header da Pagina -->
+		<header id="header" class="p-2">
+			<!-- CONTEUDO HEADER -->
+			<div id="conteudo-header" class="m-0 p-0">
+				<!-- Imagem da Logo -->
+				<img src="{% static 'img/logo-nixautos-mobile.png' %}" id="img-logo-mobile" >
+				<img src="{% static 'img/logo-nixautos-desktop-v2.png' %}" id="img-logo-desktop" class="border border-dark" >
+				<!-- LOGO DAS REDES SOCIAIS -->
+				<span class="social-icons text-center">
+					<span class="text-white font-weight-bold">Estamos também nas redes sociais</span>
+					<!-- Ícone do Facebook -->
+					<a href="https://www.facebook.com/seuperfil" target="_blank" class="px-2 text-white">
+					  <i class="fab fa-facebook fa-2x"></i>
+					</a>
+
+					<!-- Ícone do Instagram -->
+					<a href="https://www.instagram.com/seuperfil" target="_blank" class="px-2 text-white" id="icone-instagram">
+					  <i class="fab fa-instagram fa-2x"></i>
+					</a>
+				</span>
+			</div>
+
+			
+
+
+
+
+		</header>
+
+
+			<!--BARRA DE PESQUISA -->
+		<div id="pesquisa" class="p-2" >
+
+				<form method="GET"  id="form-pesquisa"  class=" text-center form-inline m-0 p-0 ">
+
+					<!--INPUT DA BARRA DE PESQUISA -->
+					<input type="text" name="barra_pesquisa" id="barra-pesquisa" class="form-control " placeholder="Pesquisar por Marca, Modelo, Ano, Combustível e/ou Câmbio. " value="" >
+
+					<!-- APAGAR PESQUISA -->
+					<a href="http://127.0.0.1:8000/" class="fa fa-times-circle-o  btn    p-0 mr-3 " id="apagar-pesquisa" aria-hidden="true" style="font-size: 1.5em;"></a>
+					<!--BTN PESQUISAR -->
+					<button type="submit" id="btn-pesquisar" class=" btn btn-primary  ">
+						<i class="fa fa-search"></i>
+					</button>
+					
+
+				</form>
+
+		</div>
+
+
+			<!-- DISPLAY ANUNCIOS VEICULOS -->
+			<div id="display-anuncios" class="border border-dark rounded row m-2 p-1 text-center ">
+				<!-- HEADER DO DISPLAY -->
+				<div class="col-12"><h3 class="text-center p-2">Confira essas super ofertas!!!</h3></div>
+				<!--DECK DO DISPLAY -->
+				<div class="card-group p-0 m-0 ">
+					<!-- CARD -->
+					{% for listagem in listagem %}
+						<!-- INICIO CARD -->
+					  <button class="card card-{{listagem.id}} col-12 col-lg-4 col-md-6 mx-1 mb-5 mt-0 p-0 rounded" >
+
+						<div class="card-body d-flex flex-column p-0 m-0">
+						  <h5 class="card-title p-2">{{listagem.nome_marca|upper}}<br>{{listagem.nome_modelo|upper}}</h5>
+
+
+							<div id="caroussel-{{listagem.id}}" class="carousel slide" data-ride="carousel">
+							   <div class="carousel-inner text-center">
+								   {% if listagem.imagem_1 %}
+									<div class="carousel-item active ">
+										<img class="img img-fluid m-0 p-0 " src="{{listagem.imagem_1.url}}" alt="Slide 1">
+									</div>
+								   {% else %}
+								   <div class="carousel-item active ">
+										<img class="img img-fluid m-0 p-0 " src="{% static 'img/img-veiculo-sem-imagem.png' %}" alt="Slide 1">
+									</div>
+								   {% endif %}
+
+								   {% if listagem.imagem_2 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_2.url}}" alt="Slide 2">
+									</div>
+								    {% endif %}
+
+								   {% if listagem.imagem_3 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_3.url}}" alt="Slide 3">
+									</div>
+								   {% endif %}
+
+								   {% if listagem.imagem_4 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_4.url}}" alt="Slide 4">
+									</div>
+								    {% endif %}
+
+								    {% if listagem.imagem_5 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_5.url}}" alt="Slide 5">
+									</div>
+								    {% endif %}
+
+								   {% if listagem.imagem_6 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_6.url}}" alt="Slide 6">
+									</div>
+								    {% endif %}
+
+								    {% if listagem.imagem_7 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_7.url}}" alt="Slide 7">
+									</div>
+								    {% endif %}
+
+								    {% if listagem.imagem_8 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_8.url}}" alt="Slide 8">
+									</div>
+								    {% endif %}
+
+								    {% if listagem.imagem_9 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_9.url}}" alt="Slide 9">
+									</div>
+								    {% endif %}
+
+								    {% if listagem.imagem_10 %}
+									<div class="carousel-item">
+										<img class="img img-fluid" src="{{listagem.imagem_10.url}}" alt="Slide 10">
+									</div>
+								    {% endif %}
+
+							   </div>
+							   <a class="carousel-control-prev controle-carousel" href="#caroussel-{{listagem.id}}" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							   </a>
+							   <a class="carousel-control-next controle-carousel" href="#caroussel-{{listagem.id}}" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							   </a>
+
+						</div>
+							<div class="p-3" data-toggle="modal" data-target=".bd-example-modal-lg-{{listagem.id}}">
+								<h6 class="msg-ampliar-clicar-{{listagem.id}} font-weight-bold">Toque para ampliar...</h6>
+							</div>
+
+
+							<div id="itens-opcionais-{{listagem.id}}">
+									{% if listagem.acendedor_cigarros %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.acendedor_cigarros }}</small>
+									{% endif %}
+
+									{% if listagem.air_bags %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.air_bags }}</small>
+									{% endif %}
+
+									{% if listagem.alarme %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.alarme }}</small>
+									{% endif %}
+
+									{% if listagem.ar_condicionado %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.ar_condicionado }}</small>
+									{% endif %}
+
+									{% if listagem.ar_condicionado_digital %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.ar_condicionado_digital }}</small>
+									{% endif %}
+
+									{% if listagem.ar_condicionado_dual_zone %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.ar_condicionado_dual_zone }}</small>
+									{% endif %}
+
+									{% if listagem.ar_quente %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.ar_quente }}</small>
+									{% endif %}
+
+									{% if listagem.assistente_saida_aclive %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.assistente_saida_aclive }}</small>
+									{% endif %}
+
+									{% if listagem.sistema_audio %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.sistema_audio }}</small>
+									{% endif %}
+
+									{% if listagem.banco_apoio_braco %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.banco_apoio_braco }}</small>
+									{% endif %}
+
+									{% if listagem.banco_regulagem_eletrica %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.banco_regulagem_eletrica }}</small>
+									{% endif %}
+
+									{% if listagem.blindado %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.blindado }}</small>
+									{% endif %}
+
+									{% if listagem.bluetooth %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.bluetooth }}</small>
+									{% endif %}
+
+									{% if listagem.calotas %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.calotas }}</small>
+									{% endif %}
+
+									{% if listagem.camera_re %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.camera_re }}</small>
+									{% endif %}
+
+									{% if listagem.carregador_dispositivo_wireless %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.carregador_dispositivo_wireless }}</small>
+									{% endif %}
+
+									{% if listagem.cd_mp3 %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.cd_mp3 }}</small>
+									{% endif %}
+
+									{% if listagem.chaves_keyless %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.chaves_keyless }}</small>
+									{% endif %}
+
+									{% if listagem.chaves_sensor_presenca %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.chaves_sensor_presenca }}</small>
+									{% endif %}
+
+									{% if listagem.computador_bordo %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.computador_bordo }}</small>
+									{% endif %}
+
+									{% if listagem.controle_som_volante %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.controle_som_volante }}</small>
+									{% endif %}
+
+									{% if listagem.controle_eletronico_descida %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.controle_eletronico_descida }}</small>
+									{% endif %}
+
+									{% if listagem.desembacador_traseiro %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.desembacador_traseiro }}</small>
+									{% endif %}
+
+									{% if listagem.direcao_eletrica %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.direcao_eletrica }}</small>
+									{% endif %}
+
+									{% if listagem.direcao_hidraulica %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.direcao_hidraulica }}</small>
+									{% endif %}
+
+									{% if listagem.encosto_cabeca_traseiro %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.encosto_cabeca_traseiro }}</small>
+									{% endif %}
+
+									{% if listagem.estribo %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.estribo }}</small>
+									{% endif %}
+
+									{% if listagem.farois_automatico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.farois_automatico }}</small>
+									{% endif %}
+
+									{% if listagem.farois_milhas %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.farois_milhas }}</small>
+									{% endif %}
+
+									{% if listagem.farois_neblina %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.farois_neblina }}</small>
+									{% endif %}
+
+									{% if listagem.freio_abs %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.freio_abs }}</small>
+									{% endif %}
+
+									{% if listagem.gps %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.gps }}</small>
+									{% endif %}
+
+									{% if listagem.insulfilm %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.insulfilm }}</small>
+									{% endif %}
+
+									{% if listagem.lona_maritima %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.lona_maritima }}</small>
+									{% endif %}
+
+									{% if listagem.multimidia %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.multimidia }}</small>
+									{% endif %}
+
+									{% if listagem.painel_lcd %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.painel_lcd }}</small>
+									{% endif %}
+
+									{% if listagem.painel_digital %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.painel_digital }}</small>
+									{% endif %}
+
+									{% if listagem.parachoque_cor_veiculo %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.parachoque_cor_veiculo }}</small>
+									{% endif %}
+
+									{% if listagem.park_assist %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.park_assist }}</small>
+									{% endif %}
+
+									{% if listagem.partida_start_stop %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.partida_start_stop }}</small>
+									{% endif %}
+
+									{% if listagem.piloto_automatico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.piloto_automatico }}</small>
+									{% endif %}
+
+									{% if listagem.pintura_metalica %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.pintura_metalica }}</small>
+									{% endif %}
+
+									{% if listagem.porta_copo %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.porta_copo }}</small>
+									{% endif %}
+
+									{% if listagem.protecao_cacamba %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.protecao_cacamba }}</small>
+									{% endif %}
+
+									{% if listagem.radio %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.radio }}</small>
+									{% endif %}
+
+									{% if listagem.rebatimento_retrovisores_externos %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.rebatimento_retrovisores_externos }}</small>
+									{% endif %}
+
+									{% if listagem.retrovisor_fotocromatico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.retrovisor_fotocromatico }}</small>
+									{% endif %}
+
+									{% if listagem.retrovisor_interno_eletrocromico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.retrovisor_interno_eletrocromico }}</small>
+									{% endif %}
+
+									{% if listagem.retrovisor_eletrico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.retrovisor_eletrico }}</small>
+									{% endif %}
+
+									{% if listagem.roda_liga_leve %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.roda_liga_leve }}</small>
+									{% endif %}
+
+									{% if listagem.sensor_chuva %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.sensor_chuva }}</small>
+									{% endif %}
+
+									{% if listagem.sensor_estacionamento_dianteiro %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.sensor_estacionamento_dianteiro }}</small>
+									{% endif %}
+
+									{% if listagem.sensor_estacionamento_traseiro %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.sensor_estacionamento_traseiro }}</small>
+									{% endif %}
+
+									{% if listagem.teto_solar %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.teto_solar }}</small>
+									{% endif %}
+
+									{% if listagem.teto_panoramico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.teto_panoramico }}</small>
+									{% endif %}
+
+									{% if listagem.tracao %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.tracao }}</small>
+									{% endif %}
+
+									{% if listagem.trava_eletrica %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.trava_eletrica }}</small>
+									{% endif %}
+
+									{% if listagem.usb %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.usb }}</small>
+									{% endif %}
+
+									{% if listagem.vidro_eletrico %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.vidro_eletrico }}</small>
+									{% endif %}
+
+									{% if listagem.vidro_verdes %}
+										<small class="bg bg-warning m-1 rounded p-1 text-dark d-block item-opcional">{{ listagem.vidro_verdes }}</small>
+									{% endif %}
+
+
+								</div>
+
+						</div>
+					  </button>
+						<!-- MODAL DO CARD -->
+						<div class="modal fade bd-example-modal-lg-{{listagem.id}} row p-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-lg ">
+							<div class="modal-content p-3">
+								<div class="modal-header ">
+									<h5 class="modal-title text-center col-11">{{listagem.nome_marca}} {{listagem.nome_modelo}} {{listagem.ano}}</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body row">
+									<!-- CARROUSSEL -->
+									<div id="carousel" class="carousel slide col-lg-6 col-md-12 col-12" data-ride="carousel">
+
+										  <div class="carousel-inner">
+											{% if listagem.imagem_1 %}
+												<div class="carousel-item active">
+												  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_1.url}}" alt="1 slide">
+												</div>
+										    {% else %}
+											    <div class="carousel-item active">
+												  <img class="d-block w-100 img img-fluid rounded" src="{% static 'img/img-veiculo-sem-imagem.png' %}" alt="1 slide">
+												</div>
+											{% endif %}
+
+											{% if listagem.imagem_2 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_2.url}}" alt="2 slide">
+											</div>
+											{% endif %}
+
+											{% if listagem.imagem_3 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_3.url}}" alt="3 slide">
+											</div>
+											  {%endif%}
+
+											  {% if listagem.imagem_4 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_4.url}}" alt="4 slide">
+											</div>
+											  {%endif%}
+
+											{% if listagem.imagem_5 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_5.url}}" alt="5 slide">
+											</div>
+											  {%endif%}
+
+										  {% if listagem.imagem_6 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_6.url}}" alt="6 slide">
+											</div>
+										  {%endif%}
+
+										  {% if listagem.imagem_7 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_7.url}}" alt="7 slide">
+											</div>
+										  {%endif%}
+
+										   {% if listagem.imagem_8 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_8.url}}" alt="8 slide">
+											</div>
+										  {%endif%}
+
+										   {% if listagem.imagem_9 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{listagem.imagem_9.url}}" alt="9 slide">
+											</div>
+										  {%endif%}
+
+										   {% if listagem.imagem_10 %}
+											<div class="carousel-item">
+											  <img class="d-block w-100 img img-fluid rounded" src="{{veiculo.imagem_8.url}}" alt="10 slide">
+											</div>
+										  {%endif%}
+
+										  </div>
+										  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only">Previous</span>
+										  </a>
+										  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only">Next</span>
+										  </a>
+									</div>
+									<!-- FINAL CARROUSSEL -->
+									<!-- DISPLAY INFO VEICULOS DA LP -->
+									<div id="display-veiculo-lp" class="text-center  col-12 col-lg-6 col-xl-6 ">
+										<!--PREÇO VEICULO -->
+										<div id="preco-veiculo" class="text-center mt-3 ">
+											<h2 class="bg-white text-dark p-md-3  rounded"><span class="ml-1 p-2 ">{{listagem.valor}}</span></h2>
+										</div>
+
+										<h4  class="p-3">Informações do Veículo</h4>
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">MARCA :</span>
+												<span class="ml-1">{{listagem.nome_marca|upper}}</span>
+											</div>
+
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">ANO/MODELO :</span>
+												<span class="ml-1">{{listagem.nome_modelo|upper}}</span>
+											</div>
+
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">COMBUSTÍVEL :</span>
+												<span class="ml-1">{{listagem.combustivel|upper}}</span>
+											</div>
+
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark ">COR:</span>
+												<span class="ml-1">{{listagem.cor|upper}}</span>
+											</div>
+
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">PORTAS :</span>
+												<span class="ml-1">{{listagem.portas|upper}}</span>
+											</div>
+
+											{% if listagem.placa %}
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">PLACA :</span>
+												<span class="ml-1">{{listagem.placa|upper}}</span>
+											</div>
+											{% endif %}
+
+											{% if listagem.ipva %}
+											<div class="m-1 p-1 campo-info-veiculos">
+												<span class="font-weight-bold text-dark">IPVA</span>
+												<span class="ml-1">{{listagem.ipva|upper}}</span>
+											</div>
+											{%endif%}
+
+
+											<div class="mt-3 p-1 ">
+
+												<h4 class="text-center">Itens Opcionais</h4>
+												{% if listagem.acendedor_cigarros %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1">{{ listagem.acendedor_cigarros }}</small>
+												{% endif %}
+
+												{% if listagem.air_bags %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1">{{listagem.air_bags }}</small>
+												{% endif %}
+
+												{% if listagem.alarme %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1">{{ listagem.alarme }}</small>
+												{% endif %}
+
+												{% if listagem.ar_condicionado %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.ar_condicionado }}</small>
+												{% endif %}
+
+												{% if listagem.ar_condicionado_digital %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.ar_condicionado_digital }}</small>
+												{% endif %}
+
+												{% if listagem.ar_condicionado_dual_zone %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.ar_condicionado_dual_zone }}</small>
+												{% endif %}
+
+												{% if listagem.ar_quente %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagemo.ar_quente }}</small>
+												{% endif %}
+
+												{% if listagem.assistente_saida_aclive %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.assistente_saida_aclive }}</small>
+												{% endif %}
+
+												{% if listagem.sistema_audio %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.sistema_audio }}</small>
+												{% endif %}
+
+												{% if listagem.banco_apoio_braco %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.banco_apoio_braco }}</small>
+												{% endif %}
+
+												{% if listagem.banco_regulagem_eletrica %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.banco_regulagem_eletrica }}</small>
+												{% endif %}
+
+												{% if listagem.blindado %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.blindado }}</small>
+												{% endif %}
+
+												{% if listagem.bluetooth %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.bluetooth }}</small>
+												{% endif %}
+
+												{% if listagem.calotas %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.calotas }}</small>
+												{% endif %}
+
+												{% if listagem.camera_re %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.camera_re }}</small>
+												{% endif %}
+
+												{% if listagem.carregador_dispositivo_wireless %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.carregador_dispositivo_wireless }}</small>
+												{% endif %}
+
+												{% if listagem.cd_mp3 %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.cd_mp3 }}</small>
+												{% endif %}
+
+												{% if listagem.chaves_keyless %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.chaves_keyless }}</small>
+												{% endif %}
+
+												{% if listagem.chaves_sensor_presenca %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.chaves_sensor_presenca }}</small>
+												{% endif %}
+
+												{% if listagem.computador_bordo %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.computador_bordo }}</small>
+												{% endif %}
+
+												{% if listagem.controle_som_volante %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.controle_som_volante }}</small>
+												{% endif %}
+
+												{% if listagemveiculo.controle_eletronico_descida %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.controle_eletronico_descida }}</small>
+												{% endif %}
+
+												{% if listagem.desembacador_traseiro %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.desembacador_traseiro }}</small>
+												{% endif %}
+
+												{% if listagem.direcao_eletrica %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.direcao_eletrica }}</small>
+												{% endif %}
+
+												{% if listagem.direcao_hidraulica %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.direcao_hidraulica }}</small>
+												{% endif %}
+
+												{% if listagem.encosto_cabeca_traseiro %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.veiculo.encosto_cabeca_traseiro }}</small>
+												{% endif %}
+
+												{% if listagem.estribo %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.estribo }}</small>
+												{% endif %}
+
+												{% if listagem.farois_automatico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.farois_automatico }}</small>
+												{% endif %}
+
+												{% if listagem.farois_milhas %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.farois_milhas }}</small>
+												{% endif %}
+
+												{% if listagem.farois_neblina %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.farois_neblina }}</small>
+												{% endif %}
+
+												{% if listagem.freio_abs %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.freio_abs }}</small>
+												{% endif %}
+
+												{% if listagem.gps %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.gps }}</small>
+												{% endif %}
+
+												{% if listagem.insulfilm %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.insulfilm }}</small>
+												{% endif %}
+
+												{% if listagem.lona_maritima %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.veiculo.lona_maritima }}</small>
+												{% endif %}
+
+												{% if listagem.multimidia %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.multimidia }}</small>
+												{% endif %}
+
+												{% if listagem.painel_lcd %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.painel_lcd }}</small>
+												{% endif %}
+
+												{% if listagem.painel_digital %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagemveiculo.painel_digital }}</small>
+												{% endif %}
+
+												{% if listagem.parachoque_cor_veiculo %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.parachoque_cor_veiculo }}</small>
+												{% endif %}
+
+												{% if listagem.park_assist %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.park_assist }}</small>
+												{% endif %}
+
+												{% if listagem.partida_start_stop %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.partida_start_stop }}</small>
+												{% endif %}
+
+												{% if listagem.piloto_automatico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.piloto_automatico }}</small>
+												{% endif %}
+
+												{% if listagem.pintura_metalica %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.pintura_metalica }}</small>
+												{% endif %}
+
+												{% if listagem.porta_copo %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.porta_copo }}</small>
+												{% endif %}
+
+												{% if listagem.protecao_cacamba %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.protecao_cacamba }}</small>
+												{% endif %}
+
+												{% if listagem.radio %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.radio }}</small>
+												{% endif %}
+
+												{% if listagem.rebatimento_retrovisores_externos %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.rebatimento_retrovisores_externos }}</small>
+												{% endif %}
+
+												{% if listagem.retrovisor_fotocromatico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.retrovisor_fotocromatico }}</small>
+												{% endif %}
+
+												{% if listagem.retrovisor_interno_eletrocromico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.retrovisor_interno_eletrocromico }}</small>
+												{% endif %}
+
+												{% if listagem.retrovisor_eletrico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.retrovisor_eletrico }}</small>
+												{% endif %}
+
+												{% if listagem.roda_liga_leve %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.roda_liga_leve }}</small>
+												{% endif %}
+
+												{% if listagem.sensor_chuva %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.sensor_chuva }}</small>
+												{% endif %}
+
+												{% if listagem.sensor_estacionamento_dianteiro %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.sensor_estacionamento_dianteiro }}</small>
+												{% endif %}
+
+												{% if listagem.sensor_estacionamento_traseiro %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1">{<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{ listagem.sensor_estacionamento_traseiro }}</small>
+												{% endif %}
+
+												{% if listagem.teto_solar %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.teto_solar }}</small>
+												{% endif %}
+
+												{% if listagem.teto_panoramico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.teto_panoramico }}</small>
+												{% endif %}
+
+												{% if listagem.tracao %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ veiculo.tracao }}</small>
+												{% endif %}
+
+												{% if listagem.trava_eletrica %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.trava_eletrica }}</small>
+												{% endif %}
+
+												{% if listagem.usb %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.usb }}</small>
+												{% endif %}
+
+												{% if listagem.vidro_eletrico %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.vidro_eletrico }}</small>
+												{% endif %}
+
+												{% if listagem.vidro_verdes %}
+												<small class="bg-white text-dark d-block rounded p-1 m-1"><i class="fa fa-check" aria-hidden="true" style="color:green;"></i>{{ listagem.vidro_verdes }}</small>
+												{% endif %}
+
+												{% if listagem.info_complementares %}
+												<div id="descricao-veiculo" class="mt-3">
+													<h4 class="text-center">Descrição</h4>
+													<p class="">{{listagem.info_complementares}}</p>
+												</div>
+												{% endif %}
+
+											</div>
+									</div>
+									<!-- FINAL INFO -->
+									<!-- FORMULARIO CAPTAÇAO DE LEADS -->
+									<div id="area-formulario" class=" col-12 col-lg-6 col-xl-6 col-md-11 rounded">
+										<h6 id="header-formulario" class="text-center">Preencha para ter acesso essa incrível oferta</h6>
+										<form method="POST" enctype="multipart/form-data">
+											{% csrf_token %}
+											<div class="p-2">
+												<label for="input-nome-leads" class="font-weight-bold m-0">NOME</label>
+												<input type="text" name="nome_leads" class="form-control" id="input-nome-leads">
+											</div>
+											<div class="p-2">
+												<label for="input-whatsapp" class="font-weight-bold m-0">WHAT´S APP</label>
+												<input type="text" name="whatsapp_leads" class="form-control" id="input-whatsapp" value="(XX) 99999-9999">
+
+												<script type="text/javascript">
+													$('#input-whatsapp').focus(function(){
+														$(this).val('')
+													})
+
+													$('#input-whatsapp').blur(function(){
+														var whatsapp = $(this).val();
+														if(whatsapp == 0){
+															$(this).val('(XX) 99999-9999')
+														}
+													})
+												</script>
+											</div>
+
+											<div class="text-center p-5">
+
+												<button type="submit" class="btn btn-lg btn-primary">Enviar</button>
+											</div>
+
+										</form>
+									</div>
+
+
+								</div>
+								<!-- FINAL MODAL BODY -->
+								<div class="modal-footer">
+									<a href="https://wa.me/5516993379492?text=Oi%20gostaria%20de%20mais%20informações%20doveiculo%20anunciado%20no%20NixAutos - Classficados%20 - %20Marca:{{listagem.nome_marca}}  %20Modelo:{{listagem.nome_modelo}} - %20Ano: {{listagem.ano}} - %20link%20do%20veículo%20-%20http://laemcasaveiculos.com.br/{{listagem.pk}}/{{listagem.slug}}/." class="btn btn-success" target="_blank"><i class="fa fa-whatsapp mr-2" aria-hidden="true"></i>Falar com Anunciante</a>
+									<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+								</div>
+							</div>
+						  </div>
+						</div>
+					{% endfor %}
+
+				</div>
+
+
+
+
+
+
+
+			</div>
+			<!-- FECHA DISPLAY IMÓVEIS -->
+
+		</div>
+
+
+
+
+
+		<!-- CARROUSSEL
+		<div class="mt-3" id="div-carousel">
+
+			<div id="carousel-display" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+				<div class="carousel-inner">
+					<h4 class="text-center" id="header-caroussel">Sugestão de véiculos para você!!</h4>
+
+					<div class="carousel-item active  ">
+
+						<div class="card-deck">
+							{% for  carossel_display in  carossel_display %}
+							<span class=" card col-4 border border-dark">
+								<img class="img img-fluid"  style="max-height:300px; min-height:" src="{{carossel_display.imagens.url}}" alt="img">
+								<div class="text-center p-1">
+									<h6>{{carossel_display.empreendimento_relacionado}}</h6>
+									{% for item in item %}
+										<small class="bg bg-warning"></small>
+									{% endfor %}
+
+								</div>
+
+							</span>
+
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="carousel-item   ">
+						<div class="card-deck">
+							{% for  carossel_display_2 in  carossel_display_2 %}
+							<span class=" card col-4 border border-dark">
+								<img class="img img-fluid" style="max-height:300px;" src="{{carossel_display_2.imagens.url}}" alt="img">
+								<div class="text-center p-1">
+									<h6>{{carossel_display_2.empreendimento_relacionado}}</h6>
+
+								</div>
+
+							</span>
+
+							{% endfor %}
+						</div>
+					</div>
+
+				</div>
+				<a class="carousel-control-prev" href="#carousel-display" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon bg-warning" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carousel-display" role="button" data-slide="next">
+					<span class="carousel-control-next-icon bg-warning" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div> -->
+
+
+
+		<!-- SOBRE NÓS -->
+		<div id="sobre" class="p-3 mt-3 text-center">
+			<h4 class="p-1">Sobre a Lá em Casa Veículos</h4>
+			<p>Sabemos o quanto encontrar um carro acessível pode ser uma tarefa desafiadora. É por isso que estamos aqui para simplificar esse processo e ajudar você a encontrar o veículo perfeito que se encaixa no seu orçamento e atende às suas necessidades. Nossa concessionária de carros populares está pronta para guiá-lo em todas as etapas do caminho. Vamos entender suas preferências, e apresentar os carros ideais que combinam com o seu estilo de vida.
+			Faça uma pesquisa na nossa plataforma de busca e confira o nosso estoque!
+			</p>
+		</div>
+
+
+
+
+
+		<!-- RODAPÉ -->
+		<footer class="text-center my-5" id="footer" >
+			<i class="fa fa-copyright" aria-hidden="true">Copyright</i>
+			<div>Antherus - Desenvolvimento Web</div>
+			<small><i class="fa fa-whatsapp mr-1" aria-hidden="true"></i><span>(16) 99337-9492</span></small>
+		</footer>
+
+
+	</div>
+	<!-- FINAL CONTAINER -->
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	 
+</body>
+</html>

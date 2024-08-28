@@ -3,125 +3,97 @@
 	padding: 0;
 }
 
-#menu-deslizante{
-	height: 90%;
-	background: lightgray;
+
+
+.fa-facebook:hover{
+    transform: scale(1.5);
+    text-decoration: none;
+}
+
+.fa-instagram:hover {
+    transform: scale(1.5);
+    text-decoration: none;
+}
+
+.social-icons{
+    position:relative;
+    left:45%;
+    top:1em;
 }
 
 
 
+  .hidden{
+    display:none;
+  }
+
+   .modal-title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+
+
+
+
 .card:hover{
-    transform: scale(1.1);
+        transform: scale(1.1);
 	    z-index:2;
 	    box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
 	    -webkit-box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
 	    -moz-box-shadow: 1px 4px 19px 0px rgba(0,0,0,0.75);
 	}
 
-
-        #insta {
-	        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 0%, #fd5949 20%, #d6249f 60%, #285AEB 90%);
-	        -webkit-background-clip: text;
-	        /* Also define standard property for compatibility */
-	        background-clip: text;
-	        -webkit-text-fill-color: transparent;
-	    }
-
-      #logos-redes-sociais{
-      	font-size: 2em;
-      }
-
-      .btn-redes-sociais:hover{
-      	transform: scale(1.5);
-      	text-decoration: none;
-      }
-
-      .hidden{
-      	display:none;
-      }
-
-
-
-		.loader-container{
-		  position: fixed;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		  background-color: rgba(0, 0, 0, 0.5);
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  z-index: 9999;
-		}
-
-		.logo{
-		    width: 300px; /* Defina a largura desejada para a sua imagem */
-            height: 300px; /* Defina a altura desejada para a sua imagem */
-            border-radius: 50%;
-		    animation: spin 3s linear 5;
-		}
-
-		@keyframes spin {
-		  0% { transform: rotate(0deg); }
-		  100% { transform: rotate(360deg); }
-		}
-
-		.container{
-		    display:block;
-		}
-
-		#whatsapp-flutuante-icone{
-		    z-index:3;
-		}
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 320.97px) {
 
 	body{
 		max-width: 100%;
-		background:aliceblue;
+		background:lavender;
 	}
 
-	header{
-		background:#000000;
-		max-height: 6em;
-		min-width:320px;
-	}
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
 
 	#img-logo{
 		max-height: 5em;
 	}
 
-	#logos-redes-sociais{
-		padding: 0.5em;
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	    border:1px solid black;
 	}
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:-0.1em;
-		left: -10%;
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
 	}
-
-	.fa-instagram{
-		position: relative;
-		left: 120%;
-		top:-2em;
-		font-size: 1.2em;
-	}
-
-
-
 
 	#barra-pesquisa{
 		min-width: 100%;
@@ -184,38 +156,53 @@
 		background:aliceblue;
 	}
 
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
 
-	header{
-		background:#000000;
-		max-height: 6em;
-		min-width:360px;
-	}
+    }
 
-	#img-logo{
-		max-height: 5em;
-	}
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
 
-	#logos-redes-sociais{
-		padding: 0.5em;
-	}
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:-0.1em;
-		left: -10%;
-	}
-
-	.fa-instagram{
-		position: relative;
-		left: 120%;
-		top:-2em;
-		font-size: 1.2em;
-	}
-
+    }
 
 	#img-logo{
 		max-height: 5em;
+	}
+
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	}
+
+	.social-icons,p{
+	    font-size:1.2em;
+	    min-width:100%;
+	}
+
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
 	}
 
 	#barra-pesquisa{
@@ -274,42 +261,54 @@
 		background:aliceblue;
 	}
 
-	header{
-		background:#000000;
-		max-height: 6em;
-		min-width:375px;
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
 
-	}
+    }
 
-	#img-logo{
-		max-height: 5em;
-	}
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
 
-	#logos-redes-sociais{
-		padding: 0.5em;
-	}
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:-0.1em;
-		left: -10%;
-	}
-
-	.fa-instagram{
-		position: relative;
-		left: 120%;
-		top:-2em;
-		font-size: 1.2em;
-	}
-
+    }
 
 	#img-logo{
 		max-height: 5em;
 	}
 
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
+	}
 
+	.social-icons,p{
+	    font-size:1.2em;
+	    min-width:100%;
+	}
 
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
+	}
 
 	#barra-pesquisa{
 		max-width: 83%;
@@ -329,23 +328,7 @@
 		top:-2.5em;
 	}
 
-	#whatsapp-flutuante-{
-		position: fixed;
-		top:9em;
-		left:0em;
-		z-index: 3;
-		 padding: 0;
 
-	}
-
-	#btn-whatsapp-flutuante {
-	    color: #25D366;
-	    font-size: 3.1em;
-	    background: white;
-	    border-radius: 50%;
-	    padding: 0;
-	   
-    }
 
     small{
 	    font-weight:900;
@@ -366,75 +349,74 @@
 		background:aliceblue;
 	}
 
-	header{
-		background:#000000;
-		max-height: 6em;
-		min-width:428px;
-	}
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+        display:none
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+
+    }
 
 	#img-logo{
 		max-height: 5em;
 	}
 
-	#logos-redes-sociais{
-		padding: 0.5em;
+	.social-icons{
+	    display:block;
+	    position:relative;
+	    top:-0.2em;
+	    left:0em;
+	    max-width:100%;
 	}
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:-0.1em;
-		left: -15%;
+	.social-icons,p{
+	    font-size:1.4em;
+	    min-width:100%;
 	}
 
-	.fa-instagram{
-		position: relative;
-		left: 100%;
-		top:-2em;
-		font-size: 1.2em;
+	.fa-facebook, .fa-instagram,a{
+	    padding:0.2em;
+
 	}
-
-
-	#img-logo{
-		max-height: 5em;
-	}
-
 
 	#barra-pesquisa{
-		min-width: 83%;
+		min-width: 100%;
 		position: relative;
-		left: -1em;
+		left: 0em;
+		height:4em;
 	}
 
 	#apagar-pesquisa{
 		position: relative;
-		left:99%;
-		top:-1.5em;
+		left:90%;
+		top:-2em;
 	}
 
 	#btn-pesquisar{
 		position: relative;
-		left: 99%;
-		top:-2.5em;
+		left: 77%;
+		top:0.2em;
 	}
 
-	#whatsapp-flutuante-{
-		position: fixed;
-		top:9em;
-		left:0em;
-		z-index: 3;
-		 padding: 0;
-
-	}
-
-	#btn-whatsapp-flutuante {
-	    color: #25D366;
-	    font-size: 3.1em;
-	    background: white;
-	    border-radius: 50%;
-	    padding: 0;
-	   
-    }
 
     small{
 	    font-weight:900;
@@ -449,82 +431,100 @@
 
 }
 
-@media (min-width: 429.00px) and (max-width:  767.98px) {
+@media (min-width: 429.00px) and (max-width:  768.98px) {
 	body{
 		min-width: 100%;
 		background:aliceblue;
 	}
 
-	header{
-		background:#000000;
-		max-height: 6em;
-	}
+	#header{
+        width:110%;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
+
+    }
+
+    #img-logo-mobile{
+        max-width:300px;
+        max-height: 70px;
+        position: relative;
+        left:1em;
+
+    }
+
+    #img-logo-desktop{
+        width:100%;
+        margin-left:0.5em;
+        margin-right:0.5em;
+        display:none
+
+    }
 
 	#img-logo{
 		max-height: 5em;
 	}
 
-	#logos-redes-sociais{
-		padding: 0.5em;
+	.social-icons{
+	    position:relative;
+	    top:1em;
+	    left:10%;
+	    max-width:100%;
+	    display:inline;
 	}
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:-0.1em;
-		left: -10%;
+	.social-icons,p{
+	    font-size:1.4em;
+	    position:relative;
+	    top:0.3em;
+
 	}
 
-	.fa-instagram{
-		position: relative;
-		left: 120%;
-		top:-2em;
-		font-size: 1.2em;
+	#icone-instagram{
+	    position:relative;
+	    top:0.3em;
+	    left:-4em;
+	    font-size:2em;
+
 	}
 
-
-	#img-logo{
-		max-height: 5em;
+	#pesquisa{
+	    border:2px solid red;
 	}
 
+	#form-pesquisa{
+	    border:3px solid black;
 
+	}
 
+	form{
+	    max-width:70%;
+	}
 
 	#barra-pesquisa{
-		min-width: 150%;
-		position: relative;
-		left: -1em;
+		min-width: 10%;
+
+		height:4em;
+		border:10px solid blue;
 	}
 
 	#apagar-pesquisa{
 		position: relative;
-		left:150%;
-		top:-1.5em;
+		left:90%;
+		top:-2em;
 	}
 
 	#btn-pesquisar{
 		position: relative;
-		left: 150%;
-		top:-2.5em;
+		left: 77%;
+		top:0.2em;
 	}
 
-	#whatsapp-flutuante-{
-		position: fixed;
-		top:9em;
-		left:0em;
-		z-index: 3;
-		 padding: 0;
-		
-	}
 
-	#btn-whatsapp-flutuante {
-	    color: #25D366;
-	    font-size: 3.1em;
-	    background: white;
-	    border-radius: 50%;
-	    padding: 0;
-	   
-    }
 
     small{
 	    font-weight:900;
@@ -679,63 +679,47 @@
 		background: aliceblue;
 	}
 
-	header{
-		background:#000000;
-		max-height: 6em;
-		min-width: 1439px;
-		position: relative;
-		left: -8em;
-	}
+	#header{
+        width:120%;
+        max-height:4.5em;
+        position: relative;
+        left:-1.7em;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(128,0,255,1) 76%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#8000ff",GradientType=1);
 
-	#img-logo{
-		min-height: 6em;
-		margin-left: 4em;
-	}
+    }
 
-	#logos-redes-sociais{
-		padding: 0.5em;
-		position: relative;
-		left: 8em;
-	}
+    #img-logo-mobile{
+        display:none;
+    }
 
-	.fa-facebook-official{
-		font-size: 1.2em;
-		position: relative;
-		top:0em;
-		left: -10%;
-	}
-
-	.fa-instagram{
-		position: relative;
-		left: 20%;
-		top:-0.2em;
-		font-size: 1.2em;
-	}
-
-
-	#img-logo{
-		max-height: 3em;
-	}
-
-
+    #img-logo-desktop{
+        position:relative;
+        left:5%;
+        top:0.1em;
+        max-height:4em;
+    }
 
 
 	#barra-pesquisa{
-		min-width: 350%;
+		min-width: 90%;
 		position: relative;
-		left: -1em;
+		left: 2em;
 	}
 
 	#apagar-pesquisa{
 		position: relative;
-		left:350%;
-		top:-1.5em;
+		left:-1em;
+		top:0em;
 	}
 
 	#btn-pesquisar{
 		position: relative;
-		left:350%;
-		top:-2.2em;
+		left:0em;
+		top:0em;
 	}
 
 	#whatsapp-flutuante-{
