@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nix Autos - Classificados</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+	<!-- FontAwesome CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- FONT GOOGLE API NUNITO -->
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo-dashboard-v3.css'%}">
+
+    <!-- JS --->
+    <script type="text/javascript" src="{% static 'js/script-dashboard-v3.js'%}"></script>
+</head>
+<body>
+	 <!-- Barra superior com logo -->
+    <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo-nixautos-v5.png' %}" alt="Logo">
+            </a>
+            <a href="https://wa.me/5516993379492?text=OL%C3%81%20SUPORTE%20T%C3%89CNICO%20AQUI" target="_blank" class="btn btn-info ml-auto" id="btn-suporte-tecnico">
+            	<i class="fa-solid fa-headset"></i> Suporte Técnico
+        	</a>
+        </div>
+    </nav>
+
+	<!-- Container -->
+	<div class="container-fluid">
+	    <!-- Menu lateral -->
+	    <nav class="sidebar">
+	    	<a href="#expandir" id="chevron-sidebar">
+	    		<i class="fa-solid fa-circle-chevron-right "></i>
+	    		<p id="text-chevron-sidebar" class="txt-btn-sidebar-mobile-expandir ">Expandir</p>
+	    	</a>
+	        <a href="#home"><i class="fa-solid fa-house "></i><p class="txt-btn-sidebar-mobile">Dashboard</p></a>
+	        <a href="#profile"><i class="fa-solid fa-desktop "></i><p>Page</p></a>
+	        <a href="#leads"><i class="fa-solid fa-square-envelope "></i><p class="txt-btn-sidebar-mobile-leads">Leads</p></a>
+	        <a href="#settings"><i class="fa-solid fa-gear "></i><p class="txt-btn-sidebar-mobile-config">Configurações</p></a>
+	    </nav>
+
+	    <!-- Conteúdo principal -->
+	    <div class="content row">
+	        <h5>Bem-vindo,<span class="ml-1">{{ user.username|capfirst }}!!!</span></h5>
+	        <hr class="col-12 m-0 p-0">
+	        
+	        <div class="col-12 m-0 p-0">
+	        	<h3 class="mt-1">Gerenciador de Estoque</h3>
+	        	<!-- BARRA DE PESQUISA DO ESTOQUE -->
+				<div id="pesquisa">
+				    <!-- FORMULÁRIO DA PESQUISA-->
+				    <form method="GET" id="form-pesquisa" class="form-inline">
+				        <input type="text" class="form-control" id="barra-pesquisa">
+				        <span class="btn btn-warning mx-2 rounded" id="btn-xmark">
+				        	<i class="fa-solid fa-xmark ml-1" id="icone-xmark"></i>
+				        </span>
+				        <span class="btn btn-primary mx-2 rounded" id="btn-pesquisar">
+				            <i class="fa-solid fa-magnifying-glass ml-1" id="icone-pesquisa"></i>
+				        </span>
+				        
+				        <!-- Script da barra de pesquisa -->
+				        <script type="text/javascript">
+						    $(document).ready(function() {
+						        // Evento ao clicar no botão 'x' (limpar)
+						        $("#btn-xmark").on('click', function() {
+						            // Limpa a barra de pesquisa
+						            $("#barra-pesquisa").val('');
+						        });
+						    });
+						</script>
+				    </form>
+				</div>
+
+				<!-- CARDS COM ESTOQUE -->
+				<div class="cards-container p-1">
+					{% for veiculo in veiculo %}
+				    <div class="card p-2 my-2">
+				        <h3 class="p-0 m-0">Card 1</h3>
+				        <!-- CAROUSEL BOOTSTRAP -->
+            			<div id="carousel-{{ veiculo.pk }}" class="carousel slide m-0" data-ride="carousel">
+            				<div class="carousel-inner">
+								{% if veiculo.imagem_1 %}
+            					<div class="carousel-item active">
+									<!-- IMG DO CARROUSSEL -->
+            			            <img src="{{ veiculo.imagem_1.url }}" class="img img-fluid rounded" alt="IMG DO VEÍCULO" width="400" height="300">
+								</div>
+								{% else %}
+								<div class="carousel-item active">
+									<img src="{% static 'img/img-veiculo-sem-imagem.png' %}" class="img img-fluid rounded" alt="VEÍCULO SEM IMAGEM" width="400" height="300">
+            					</div>
+								{% endif %}
+								{% if veiculo.imagem_2 %}
+            					<div class="carousel-item ">
+            						<!-- IMG DO CARROUSSEL -->
+            			            <img src="{{ veiculo.imagem_1.url }}" class="img img-fluid rounded" alt="IMG DO VEÍCULO" width="400" height="300">
+            					</div>
+								{% endif %}
+            					<a class="carousel-control-prev" href="#carousel-{{ veiculo.pk }}" role="button" data-slide="prev">
+								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Previous</span>
+								</a>
+
+								<a class="carousel-control-next" href="#carousel-{{ veiculo.pk }}" role="button" data-slide="next">
+								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								    <span class="sr-only">Next</span>
+								</a>
+            				</div>
+            				
+            			</div>
+            			<!-- FINAL CAROUSEL -->
+						<!-- INFO VEICULO ESTOQUE -->
+            			<div id="info-veiculo-estoque" class="p-1 mt-1">
+							<div class="my-3 ">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Id</span>
+		                        <span class=" info-veiculo">{{veiculo.pk}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Marca</span>
+		                        <span class=" info-veiculo"> {{veiculo.nome_marca}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Modelo</span>
+		                        <span class=" info-veiculo">{{veiculo.nome_modelo}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Ano</span>
+		                        <span class=" info-veiculo">{{veiculo.ano}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Cor</span>
+		                        <span class=" info-veiculo">{{veiculo.cor}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Portas</span>
+		                        <span class=" info-veiculo">{{veiculo.portas}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Valor</span>
+		                        <span class=" info-veiculo">R${{veiculo.valor}}</span>
+		                    </div>
+
+		                    <div class="my-3">
+		                        <span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Anunciado em</span>
+		                        <span class=" info-veiculo">{{veiculo.data}}</span>
+		                    </div>
+	                    </div>
+            			<!-- INFO VEICULO ESTOQUE -->
+
+	                    <!-- BLOCO AUXILIAR -->
+	                    <div id="bloco-auxiliar">
+	                    	<!-- DESCRIÇÃO VEICULO -->
+	                    	<div id="descricao-veiculo">
+	                    		<span class='bg-warning rounded p-1 mr-1 font-weight-bold'>Descrição</span>
+	                    		<div id="display-descricao" class="border border-light rounded p-2" disabled>
+	                    			<ul>
+	                    				<li>{{veiculo.air_bags}}</li>
+	                    				<li>{{veiculo.banco_apoio_braco}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    				<li>{{veiculo.descricao}}</li>
+	                    			</ul>
+	                    		</div>
+	                    	</div>
+	                    	<!--  FINAL BLOCO AUXILIAR -->	
+	                    </div>
+
+	                    <!-- BTN AUXILIARES -->
+	                    	<div id="btn-auxiliares" >
+								<div class="my-3" id="link-acesso-lp">
+			                        <span class='bg-warning rounded  font-weight-bold p-2'>Link da LP</span>
+			                        <div  class="link-lp-{{veiculo.pk}} pt-1  info-veiculo">http://www.nixautos.com.br/{{veiculo.anunciante}}/{{veiculo.pk}}/{{veiculo.slug}}</div>
+			                        	<!-- BTN COPIAR -->
+		                            <button id="botao-copiar-{{veiculo.pk}}" class="  btn-sm btn-warning rounded botao-copiar " >Copiar Link</button>
+		                            <button href="http://www.nixautos.com.br/{{veiculo.anunciante}}/{{veiculo.pk}}/{{veiculo.slug}}" target="_blank" id="botao-acessar-lp" class=" p-1 btn-sm btn-warning rounded m-3 " >Acessar LP</button>
+		                            <script>
+			                        document.addEventListener("DOMContentLoaded", function() {
+			                            const botaoCopiar = document.getElementById("botao-copiar-{{veiculo.pk}}");
+			                            const linkDiv = document.querySelector(".link-lp-{{veiculo.pk}}");
+
+			                            botaoCopiar.addEventListener("click", function() {
+			                                const elementoTemp = document.createElement("textarea");
+			                                elementoTemp.value = linkDiv.textContent;
+			                                document.body.appendChild(elementoTemp);
+			                                elementoTemp.select();
+
+			                                try {
+			                                    document.execCommand("copy");
+			                                    alert("Link copiado para a área de transferência!");
+			                                } catch (err) {
+			                                    alert("Não foi possível copiar o link.");
+			                                }
+
+			                                document.body.removeChild(elementoTemp);
+			                            });
+			                        });
+			                    </script>
+
+			                    </div>	
+	                 		<!-- FINAL BTN AUXILIARES --> 
+		                    </div>
+
+		                    <!-- BTN DELETAR E EDITAR -->
+		                    <div id="btn-auxiliares-2">
+		                    	<button id="editar-veiculo" class="btn btn-outline-primary ">Editar</button>
+	       
+                 				<form method="POST" action="" id="form-deletar" class="m-0 p-0">
+	                              	<!--{% csrf_token %}-->
+	                               <button id="deletar-{{veiculo.pk}}" class="btn btn-danger deletar-veiculo ">Deletar</button>
+	                            </form>
+		                    	
+		                    </div>
+
+				    </div>
+					{% endfor %}
+				    
+				</div>
+	            
+
+
+	    </div>
+	<!-- FINAL CONTAINER -->
+	</div>
+
+	<!-- Footer -->
+    <footer class="footer bg-dark text-white mt-auto py-3">
+        <div class="container text-center">
+            <span>&copy; 2024 Nix Autos - Todos os direitos reservados.</span>
+            <div>Desenvolvido por Antherus - <i class="fa-brands fa-whatsapp"></i>(16)993379492</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+
+</body>
+</html>

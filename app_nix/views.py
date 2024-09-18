@@ -50,7 +50,7 @@ def estoque_veiculos(request, user):
                     combustivel__icontains=busca) | Q(cambio__icontains=busca) | Q(
                     cor__icontains=busca) | Q(portas__icontains=busca)
             )
-        return render(request, 'site/dashboard-gerenciador-estoque.html', {'veiculo': veiculo})
+        return render(request, 'site/dashboard-v3.html', {'veiculo': veiculo})
     else:
         mensagem = 'Não pode acessar!!!'
         print(mensagem)

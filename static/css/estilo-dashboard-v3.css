@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o corpo */
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    background: lavender;
+}
+
+/* Barra superior */
+.navbar {
+    background-color: #343a40;
+    color: white;
+}
+
+.navbar img {
+    height: 40px;
+}
+
+/* Estilos para o menu lateral */
+.sidebar {
+    height: 100vh;
+    width: 45px;
+    position: fixed;
+    top: 56px; /* Ajuste para que a barra lateral fique abaixo da navbar */
+    left: 0;
+    background-color: #343a40;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Transferir para o javascript o css abaixo sobre uma função hover */
+.sidebar p {
+    display: none;
+}
+
+/* Estilos para o conteúdo principal */
+.content {
+    margin-left: 45px; /* Ajuste para dar espaço ao menu lateral */
+    padding: 20px;
+    margin-top: 56px; /* Para ajustar o conteúdo ao topo da página */
+}
+
+#display-descricao{
+    background: lavender;
+}
+
+/* Responsividade - telas menores */
+@media (max-width: 767px) {
+    .sidebar {
+        width: 120%;
+        height: auto;
+        margin: auto;
+        padding-left: 2em;
+        position: relative;
+        top: 45px;
+        left: -1.5em;
+        display: inline-flex;
+    }
+
+    .sidebar a {
+        margin-right: 1.2em;
+    }
+
+    .content {
+        margin-left: -1em;
+        width: 110%;
+    }
+
+    /* BARRA DE PESQUISA */
+    #barra-pesquisa {
+        max-width: 80%;
+        margin: 1em auto;
+    }
+
+    #btn-pesquisar {
+        min-width: 95%;
+        margin: 0.5em auto;
+    }
+}
+
+
+
+@media (min-width: 768px and max-width: 1080px) {
+    /* BARRA DE PESQUISA */
+    #barra-pesquisa {
+        width: 100%;
+        margin: 1em auto;
+    }
+
+    #btn-pesquisar {
+        margin: 0.5em auto;
+    }
+
+    
+}
+
+@media (min-width: 1080.01px) {
+    /* BARRA DE PESQUISA */
+    #barra-pesquisa {
+        min-width: 85%;
+        margin: auto;
+    }
+
+    #btn-pesquisar {
+        margin: 0;
+    }
+
+    /* Card Display Veículos */
+    .cards-container {
+        display: block;
+    }
+
+    .card {
+        flex: 1; /* Faz com que os cards ocupem espaços iguais */
+        margin: auto; /* Espaçamento horizontal entre os cards */
+        max-height: 400px;
+    }
+
+    /*Carousel*/
+    .carousel{
+        max-width: 20%;
+    }
+
+    #info-veiculo-estoque{
+        position: relative;
+        top: -205px;
+        left: 22%;
+        font-size: 0.6em;
+        font-weight: bold;
+    }
+
+    #bloco-auxiliar{
+        position: relative;
+        top: -480px;
+        left: 75%; 
+    }
+
+    #display-descricao{
+        max-width: 20%;
+        height: 230px;
+        overflow-y: scroll; /* Rolagem apenas no eixo Y (vertical) */
+        overflow-x: hidden; /* Esconde a rolagem horizontal, se não for necessária */
+        font-size: 0.7em;
+        margin: 0;
+        padding: 0;
+    }
+
+    #btn-auxiliares{
+        position: relative;
+        top: -478px;
+        max-width: 60%;
+        font-size: 0.6em;
+    }
+
+    #btn-auxiliares-2{
+        position: relative;
+        top: -580px;
+        left: 60%;
+        font-size: 0.5em;
+    }
+
+    #editar-veiculo{
+        position: relative;
+        left: 10%;
+    }
+
+    .deletar-veiculo{
+        position: relative;
+        left: 25%;
+        top: -2.5em;
+    }
+
+
+}
